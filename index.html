@@ -26,6 +26,8 @@
                 <p>The best burgers and pizzas in town.</p>
             </div>
         </div>
+
+
         <div class="content">
             <div class="menu">
 
@@ -36,7 +38,7 @@
                         <p>pepperoni,mushrom,mozarella</p>
                         <h2>$14</h2>
                     </div>
-                    <div class="plus-btn">
+                    <div class="plus-btn" id="plusbtnone" data-plus-one="plusbtnone">
                         +
                     </div>
 
@@ -48,7 +50,7 @@
                         <p>pepperoni,mushrom,mozarella</p>
                         <h2>$14</h2>
                     </div>
-                    <div class="plus-btn">
+                    <div class="plus-btn" id="plusbtntwo" data-plus-two="plus-btnTwo">
                         +
                     </div>
 
@@ -60,7 +62,7 @@
                         <p>pepperoni,mushrom,mozarella</p>
                         <h2>$14</h2>
                     </div>
-                    <div class="plus-btn">
+                    <div class="plus-btn" id="plus-btnThree" data-plus-three="plus-btnThree">
                         +
                     </div>
 
@@ -69,7 +71,7 @@
 
             </div>
 
-            <div class="order-amount d-none">
+            <div class="order-amount">
                 <div class="title">
                     <h1>Your order</h1>
                 </div>
@@ -96,7 +98,7 @@
                     <h1>Total price:</h1>
                     <h2>$26</h2>
                 </div>
-                <button class="complete-btn">Complete order</button>
+                <button id="complete-btn">Complete order</button>
 
 
 
@@ -108,22 +110,34 @@
             </div>
 
         </div>
+
+
+
+
+
         <div class="card-popup">
+            <div id="close-btn">
+                x
+            </div>
             <div class="card-container">
                 <h1>
                     Enter card details
                 </h1>
-                <form>
 
-                    <input type="text" name="fullName" placeholder="Enter your name" required>
-                    <input type="tel" name="cardNumber" placeholder="Enter card number" maxlength="16" required>
 
-                    <input type="tel" inputmode="numeric" name="cardCvv" pattern="[0-9]" placeholder="Enter CVV"
-                        autocomplete="cc-number" maxlength="3" required>
+
+                <form id="formOne">
+
+                    <input type="text" name="fullName" placeholder="Enter your name">
+                    <input type="tel" name="cardNumber" placeholder="Enter card number" maxlength="16" minlength="8">
+                    <input type="tel" name="cardCvv" inputmode="numeric" placeholder="Enter CVV" maxlength="3"
+                        minlength="3">
+                    <input type="submit" id="submitInBtn" placeholder="pay"></a>
 
                 </form>
 
-                <button type="submit">Pay</button>
+
+
 
             </div>
         </div>
