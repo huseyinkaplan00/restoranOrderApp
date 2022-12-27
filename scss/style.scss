@@ -179,11 +179,11 @@ body {
     }
 
     .card-popup {
+        display: none;
         position: absolute;
         right: 0;
         top: 0;
         left: 0;
-
         width: 524px;
         height: 542.24px;
         margin: auto;
@@ -191,6 +191,57 @@ body {
         background: #FFFFFF;
         border-radius: 3.88991px;
         filter: drop-shadow(5.18654px 5.18654px 255.437px rgba(0, 0, 0, 0.5));
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 47.32px;
+            margin-left: 23.22px;
+            margin-left: 24.87px;
+            margin-bottom: 29.85px;
+
+            h1 {
+                font-family: 'Verdana';
+                font-weight: 1000;
+                font-size: 24px;
+                line-height: 31px;
+                margin-left: 108.7px;
+                margin-right: 110.93px;
+                margin-bottom: 46.07px;
+            }
+
+            input {
+                width: 475.91px;
+                height: 71.3px;
+                padding: 16.58px 26.53px 13.8px 26.53px;
+                margin-bottom: 23.22px;
+                display: block;
+                box-sizing: border-box;
+                border: 1.29664px solid #757575;
+                border-radius: 3.88991px;
+                color: #757575;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 31px;
+            }
+
+            button {
+                width: 475.91px;
+                height: 71.3px;
+                background: #16DB99;
+                border-radius: 3.88991px;
+                border: none;
+                color: #FFFFFF;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 31px;
+
+            }
+
+        }
+
+
+
     }
 
 }

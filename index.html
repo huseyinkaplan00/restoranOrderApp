@@ -75,14 +75,14 @@
                 </div>
                 <div class="order-titles">
                     <h1>Pizza</h1>
-                    <p>remove</p>
+                    <p class="remove">remove</p>
                     <div class="price">
                         <h2>$14</h2>
                     </div>
                 </div>
                 <div class="order-titles">
                     <h1>Beer</h1>
-                    <p>remove</p>
+                    <p class="remove">remove</p>
                     <div class="price">
                         <h2>$12</h2>
                     </div>
@@ -105,18 +105,23 @@
 
         </div>
         <div class="card-popup">
-            <h1>
-                Enter card details
-            </h1>
-            <form>
+            <div class="card-container">
+                <h1>
+                    Enter card details
+                </h1>
+                <form>
 
-                <input type="text" name="fullName" placeholder="Enter your name" required>
-                <input type="tel" name="cardNumber" placeholder="Enter card number" maxlength="16">
+                    <input type="text" name="fullName" placeholder="Enter your name" required>
+                    <input type="tel" name="cardNumber" placeholder="Enter card number" maxlength="16">
 
-                <input type="tel" inputmode="numeric" name="cardCvv" pattern="[0-9]" placeholder="Enter CVV"
-                    autocomplete="cc-number" maxlength="3" required>
+                    <input type="tel" inputmode="numeric" name="cardCvv" pattern="[0-9]" placeholder="Enter CVV"
+                        autocomplete="cc-number" maxlength="3" required>
 
-            </form>
+                </form>
+
+                <button type="submit">Pay</button>
+
+            </div>
         </div>
     </div>
 
