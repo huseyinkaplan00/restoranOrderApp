@@ -69,7 +69,7 @@
 
             </div>
 
-            <div class="order-amount">
+            <div class="order-amount d-none">
                 <div class="title">
                     <h1>Your order</h1>
                 </div>
@@ -103,6 +103,10 @@
             </div>
 
 
+            <div class="order-finish d-none">
+                <p>Thanks, James! Your order is on its way!</p>
+            </div>
+
         </div>
         <div class="card-popup">
             <div class="card-container">
@@ -112,7 +116,7 @@
                 <form>
 
                     <input type="text" name="fullName" placeholder="Enter your name" required>
-                    <input type="tel" name="cardNumber" placeholder="Enter card number" maxlength="16">
+                    <input type="tel" name="cardNumber" placeholder="Enter card number" maxlength="16" required>
 
                     <input type="tel" inputmode="numeric" name="cardCvv" pattern="[0-9]" placeholder="Enter CVV"
                         autocomplete="cc-number" maxlength="3" required>
