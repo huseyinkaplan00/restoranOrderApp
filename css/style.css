@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Smythe&display=swap");
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Smythe", cursive;
+  background-color: #f3f3f3;
+}
+
+.container {
+  width: 600px;
+  height: 1161px;
+  background-color: #FFFFFF;
+  position: relative;
+}
+.container .banner .inner {
+  box-sizing: border-box;
+  padding: 46px 278.47px 70px 46.07px;
+  background-image: url("/images/bg img.svg");
+  background-size: cover;
+  width: 600px;
+  height: 167px;
+  color: #FFFFFF;
+  font-weight: 400;
+}
+.container .banner .title {
+  font-size: 39px;
+  margin-bottom: 4px;
+}
+.container .banner p {
+  font-size: 22.4216px;
+}
+.container .content {
+  margin-top: 67px;
+  margin-left: 46px;
+  margin-right: 46px;
+  margin-bottom: 53px;
+}
+.container .content .menu .item {
+  display: flex;
+  border-bottom: 1px solid #D2D2D2;
+  padding-bottom: 51px;
+  width: 504px;
+  margin-bottom: 45px;
+}
+.container .content .menu .item img {
+  margin-right: 31px;
+}
+.container .content .menu .item .order-detail h1 {
+  line-height: 17px !important;
+  color: #000000;
+  margin-bottom: 9.8px;
+}
+.container .content .menu .item .order-detail p {
+  font-size: 16px;
+  color: #8B8B8B;
+  margin-bottom: 8px;
+}
+.container .content .menu .item .order-detail h2 {
+  font-size: 20px;
+  font-weight: 600 !important;
+  color: #000000;
+}
+.container .content .menu .item .plus-btn {
+  font-family: "Inter";
+  line-height: 24px;
+  font-weight: 200;
+  width: 50px;
+  height: 50px;
+  border: 1.5px solid #DEDEDE;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #3C3C3C;
+  margin-left: auto;
+}
+.container .content .order-amount {
+  display: flex;
+  flex-direction: column;
+}
+.container .content .order-amount .title {
+  text-align: center;
+}
+.container .content .order-amount .order-titles {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.container .content .order-amount .order-titles p {
+  font-family: "Verdana";
+  color: #BBBBBB;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+}
+.container .content .order-amount .order-titles .price {
+  margin-left: auto;
+}
+.container .content .order-amount .divider {
+  border-bottom: 2px solid #393333;
+  margin-top: 31px;
+  margin-bottom: 14px;
+}
+.container .content .order-amount .total-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .content .order-amount .complete-btn {
+  margin-top: 53px;
+  width: 508px;
+  height: 60px;
+  background: #16DB99;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.container .card-popup {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  width: 524px;
+  height: 542.24px;
+  margin: auto;
+  margin-top: 292px;
+  background: #FFFFFF;
+  border-radius: 3.88991px;
+  filter: drop-shadow(5.18654px 5.18654px 255.437px rgba(0, 0, 0, 0.5));
+}/*# sourceMappingURL=style.css.map */
