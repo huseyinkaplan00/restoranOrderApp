@@ -2,22 +2,25 @@ export const menuArray = [
     {
         name: "Pizza",
         ingredients: ["pepperoni", "mushrom", "mozarella"],
-        id: 0,
+        id: "zero",
         price: 14,
-        emoji: "🍕"
+        emoji: "🍕",
+        img: "./images/item graphic.svg"
     },
     {
         name: "Hamburger",
         ingredients: ["beef", "cheese", "lettuce"],
         price: 12,
         emoji: "🍔",
-        id: 1
+        id: "one",
+        img: "./images/itemTwo.svg"
     },
     {
         name: "Beer",
         ingredients: ["grain, hops, yeast, water"],
         price: 12,
         emoji: "🍺",
-        id: 2
+        id: "two",
+        img: "./images/itemThree.svg"
     }
 ]
