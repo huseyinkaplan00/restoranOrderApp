@@ -1,13 +1,25 @@
 import { menuArray } from "./data.js";
 
-const container = document.querySelector(".container")
+
 const popup = document.querySelector(".card-popup")
 const allInputs = document.querySelectorAll("input")
-const constForm = document.getElementById("formOne")
 const orderAmount = document.querySelector(".order-amount")
 const orderFinish = document.querySelector(".order-finish")
 const pizza = document.querySelector(".pizza")
 const menuSection = document.querySelector(".menu")
+
+
+document.addEventListener("submit", function (e) {
+    if (e.target.id === "formOne") {
+        e.preventDefault()
+        console.log("tikladi")
+        popup.classList.add("d-none")
+        orderAmount.classList.add("d-none")
+        orderFinish.classList.remove("d-none")
+    }
+})
+
+
 document.addEventListener("click", function (e) {
 
     const isClickedPopUp = popup.contains(e.target)
@@ -33,7 +45,7 @@ document.addEventListener("click", function (e) {
 
 
     else if (e.target.dataset.zero) {
-        pizzAddBTN()
+        pizzAddBTN(e.target.dataset.zero)
     }
 
 
@@ -77,21 +89,18 @@ function closeBTN() {
 
 
 
-function pizzAddBTN() {
+function pizzAddBTN(item) {
 
-    console.log("tik1")
-    let pizzaHTML = `
-    
-            <div class="order-titles">
-                    <h1 class="pizza">Pizza</h1>
-                    <p class="remove">remove</p>
-                    <div class="price">
-                        <h2>$14</h2>
-                    </div>
-            </div>
-    
-    
-    `
+    const targetObj = menuArray.filter(function (piz) {
+        return item
+    })[0]
+
+    targetObj.click += 14
+
+
+
+    console.log(targetObj.click)
+    renderHTML()
 
 }
 
@@ -137,10 +146,10 @@ function beerAddBTN() {
 
 function render() {
     let htmlCont = ``
-
+    let mainCont = ``
     menuArray.forEach(function (content) {
         if (content.id === "zero") {
-            console.log(content.name)
+
         }
 
         else if (content.id === 1) {
@@ -183,6 +192,8 @@ function render() {
 
 
     })
+    mainCont += ``
+
 
     return htmlCont
 

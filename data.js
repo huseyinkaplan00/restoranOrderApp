@@ -5,7 +5,8 @@ export const menuArray = [
         id: "zero",
         price: 14,
         emoji: "🍕",
-        img: "./images/item graphic.svg"
+        img: "./images/item graphic.svg",
+        click: 0
     },
     {
         name: "Hamburger",
@@ -13,7 +14,8 @@ export const menuArray = [
         price: 12,
         emoji: "🍔",
         id: "one",
-        img: "./images/itemTwo.svg"
+        img: "./images/itemTwo.svg",
+        click: 0
     },
     {
         name: "Beer",
@@ -21,6 +23,7 @@ export const menuArray = [
         price: 12,
         emoji: "🍺",
         id: "two",
-        img: "./images/itemThree.svg"
+        img: "./images/itemThree.svg",
+        click: 0
     }
 ]

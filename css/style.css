@@ -130,7 +130,21 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.container .content .order-amount #complete-btn {
+.container .content .order-finish {
+  width: 504px;
+  height: 120px;
+  background: #ECFDF5;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 17px;
+  /* identical to box height, or 52% */
+  color: #065F46;
+}
+.container #complete-btn {
   margin-top: 53px;
   width: 508px;
   height: 60px;
@@ -145,20 +159,6 @@ body {
   line-height: 24px;
   color: #FFFFFF;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.container .content .order-finish {
-  width: 504px;
-  height: 120px;
-  background: #ECFDF5;
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 17px;
-  /* identical to box height, or 52% */
-  color: #065F46;
 }
 .container .card-popup {
   display: none;
