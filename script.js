@@ -8,7 +8,6 @@ const allInputs = document.querySelectorAll("input")
 const orderAmount = document.querySelector(".order-amount")
 const orderFinish = document.querySelector(".order-finish")
 const pizza = document.querySelector(".pizza")
-const menuSection = document.querySelector(".menu")
 
 
 document.addEventListener("submit", function (e) {
@@ -82,16 +81,11 @@ document.addEventListener("click", function (e) {
 
     }
 
-
-
-
-
     else if (e.target.id === "close-btn") {
 
         closeBTN()
 
     }
-
 
     else if (e.target.dataset.zero) {
         pizzAddBTN(e.target.dataset.zero)
@@ -99,19 +93,18 @@ document.addEventListener("click", function (e) {
 
 
     else if (e.target.dataset.one) {
-        hamburgerAddBTN()
+        hamburgerAddBTN(e.target.dataset.one)
     }
 
 
     else if (e.target.dataset.two) {
-        beerAddBTN()
+        beerAddBTN(e.target.dataset.two)
     }
 
 
     else if (!isClickedPopUp) {
         popup.style.display = "none"
     }
-
 
 })
 
@@ -123,35 +116,41 @@ function completeBTN() {
 
 
 
-
-
 function closeBTN() {
     return popup.style.display = "none"
 }
 
 
 
-
-
-
-
-
 function pizzAddBTN(item) {
 
-    const targetObj = menuArray.filter(function (piz) {
-        return item
+    const targetObj = menuArray.filter(function (pizza) {
+        return pizza.id === item
     })[0]
 
-    targetObj.click += 14
+    console.log(targetObj)
 
 
 
-    console.log(targetObj.click)
-    renderHTML()
+
+
+
+
+    recap()
 
 }
 
-function hamburgerAddBTN() {
+function hamburgerAddBTN(item) {
+
+    const targetObj = menuArray.filter(function (hamburger) {
+
+        return hamburger.id === item
+
+
+    })[0]
+
+    console.log(targetObj)
+
     console.log("tik2")
     let hamburgerHTML = `
     
@@ -166,14 +165,21 @@ function hamburgerAddBTN() {
 
 
 `
-
+    recap()
 
 
 }
 
 
 
-function beerAddBTN() {
+function beerAddBTN(item) {
+    const targetObj = menuArray.filter(function (beer) {
+        return beer.id === item
+    })[0]
+
+    targetObj.price += 1
+    console.log(targetObj)
+
     console.log("tik3")
     let beerHTML = `
         <div class="order-titles">
@@ -186,34 +192,93 @@ function beerAddBTN() {
         </div>
     `
 
-
+    recap()
 
 }
+
+
+function recap() {
+    let orderRecap = ``
+    orderAmount.classList.remove("d-none")
+    menuArray.forEach(function (data) {
+        orderRecap = `
+    
+    
+        <div class="title">
+            <h1>Your order</h1>
+        </div>
+        <div class="order-titles">
+            <h1 class="pizza">${data.name}</h1>
+            <p class="remove">remove</p>
+            <div class="price">
+                <h2>$${data.price}</h2>
+            </div>
+        </div>
+        <div class="order-titles">
+            <h1>Beer</h1>
+            <p class="remove">remove</p>
+            <div class="price">
+                <h2>$12</h2>
+            </div>
+
+        </div>
+
+        <div class="order-titles">
+            <h1>Hamburger</h1>
+            <p class="remove">remove</p>
+            <div class="price">
+                <h2>$12</h2>
+            </div>
+
+        </div>
+        <div class="divider"></div>
+
+
+
+        <div class="total-price">
+            <h1>Total price:</h1>
+            <h2>$26</h2>
+        </div>
+
+        <button id="complete-btn">Complete order</button>
+
+
+   
+
+`
+
+
+
+    })
+
+
+    orderAmount.innerHTML = orderRecap
+
+}
+
 
 
 function render() {
     let htmlCont = ``
     let mainCont = ``
     menuArray.forEach(function (content) {
-        if (content.id === "zero") {
+        // if (content.id === "zero") {
 
-        }
+        // }
 
-        else if (content.id === 1) {
+        // else if (content.id === 1) {
 
-            console.log(content.name)
+        //     console.log(content.name)
 
-        }
+        // }
 
-        else if (content.id === 2) {
+        // else if (content.id === 2) {
 
-            console.log(content.name)
+        //     console.log(content.name)
 
-        }
+        // }
 
         htmlCont += `
-        
-       
 
                 <div class="item">
                     <img src="${content.img}" alt="">
@@ -227,12 +292,6 @@ function render() {
                     </div>
 
                 </div>
-                
-
-
-            
-
-        
         `
 
 
@@ -248,7 +307,7 @@ function render() {
 }
 
 function renderHTML() {
-    menuSection.innerHTML = render()
+    document.querySelector(".menu").innerHTML = render()
 
 }
 
