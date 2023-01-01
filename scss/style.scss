@@ -135,6 +135,19 @@ body {
 
                 .price {
                     margin-left: auto;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    span {
+                        background-color: #cbc3c3;
+                        text-align: center;
+                        width: 23px;
+                        height: 21px;
+                        border-radius: 50%;
+                        font-size: 16px;
+                        color: #ec973c
+                    }
                 }
             }
 

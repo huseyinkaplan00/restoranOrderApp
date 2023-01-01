@@ -9,6 +9,7 @@ const orderAmount = document.querySelector(".order-amount")
 const orderFinish = document.querySelector(".order-finish")
 const pizza = document.querySelector(".pizza")
 
+const orderItem = []
 
 document.addEventListener("submit", function (e) {
     if (e.target.id === "formOne") {
@@ -75,9 +76,18 @@ document.addEventListener("click", function (e) {
 
     const isClickedPopUp = popup.contains(e.target)
 
+
+
     if (e.target.id === "complete-btn") {
 
         completeBTN()
+
+    }
+
+
+    else if (e.target.dataset.add) {
+
+        addClick(e.target.dataset.add)
 
     }
 
@@ -87,19 +97,7 @@ document.addEventListener("click", function (e) {
 
     }
 
-    else if (e.target.dataset.zero) {
-        pizzAddBTN(e.target.dataset.zero)
-    }
 
-
-    else if (e.target.dataset.one) {
-        hamburgerAddBTN(e.target.dataset.one)
-    }
-
-
-    else if (e.target.dataset.two) {
-        beerAddBTN(e.target.dataset.two)
-    }
 
 
     else if (!isClickedPopUp) {
@@ -122,129 +120,46 @@ function closeBTN() {
 
 
 
-function pizzAddBTN(item) {
+function addClick(itemID) {
 
-    const targetObj = menuArray.filter(function (pizza) {
-        return pizza.id === item
+    const itemObj = menuArray.filter(function (selectedItem) {
+        return selectedItem.id == itemID
     })[0]
 
-    console.log(targetObj)
+    itemObj.orderCount++
+    itemObj.price++
+    itemObj.sum = itemObj.price * itemObj.orderCount
 
+    if (!orderItem.includes(itemObj)) {
 
+        orderItem.push(itemObj)
 
-
-
-
-
-    recap()
-
-}
-
-function hamburgerAddBTN(item) {
-
-    const targetObj = menuArray.filter(function (hamburger) {
-
-        return hamburger.id === item
-
-
-    })[0]
-
-    console.log(targetObj)
-
-    console.log("tik2")
-    let hamburgerHTML = `
-    
-    <div class="order-titles">
-                    <h1>Hamburger</h1>
-                    <p class="remove">remove</p>
-                    <div class="price">
-                        <h2>$12</h2>
-                    </div>
-
-     </div>
-
-
-`
-    recap()
-
-
-}
-
-
-
-function beerAddBTN(item) {
-    const targetObj = menuArray.filter(function (beer) {
-        return beer.id === item
-    })[0]
-
-    targetObj.price += 1
-    console.log(targetObj)
-
-    console.log("tik3")
-    let beerHTML = `
-        <div class="order-titles">
-            <h1>Beer</h1>
-            <p class="remove">remove</p>
-            <div class="price">
-                <h2>$12</h2>
-            </div>
-
-        </div>
-    `
+    }
 
     recap()
-
 }
+
 
 
 function recap() {
     let orderRecap = ``
+
+
     orderAmount.classList.remove("d-none")
-    menuArray.forEach(function (data) {
-        orderRecap = `
-    
-    
-        <div class="title">
-            <h1>Your order</h1>
-        </div>
+
+    orderItem.forEach(function (data) {
+
+        orderRecap += `
+        
         <div class="order-titles">
-            <h1 class="pizza">${data.name}</h1>
-            <p class="remove">remove</p>
-            <div class="price">
-                <h2>$${data.price}</h2>
-            </div>
-        </div>
-        <div class="order-titles">
-            <h1>Beer</h1>
-            <p class="remove">remove</p>
-            <div class="price">
-                <h2>$12</h2>
-            </div>
-
-        </div>
-
-        <div class="order-titles">
-            <h1>Hamburger</h1>
-            <p class="remove">remove</p>
-            <div class="price">
-                <h2>$12</h2>
-            </div>
-
-        </div>
-        <div class="divider"></div>
-
-
-
-        <div class="total-price">
-            <h1>Total price:</h1>
-            <h2>$26</h2>
-        </div>
-
-        <button id="complete-btn">Complete order</button>
-
-
-   
-
+                        <h1 class="pizza">${data.name}</h1>
+                        <p class="remove">remove</p>
+                        <div class="price">
+                        <span>${data.orderCount}</span>    
+                        <h2>$${data.price}</h2>
+                            
+                        </div>
+                    </div>
 `
 
 
@@ -252,7 +167,7 @@ function recap() {
     })
 
 
-    orderAmount.innerHTML = orderRecap
+    document.querySelector(".orderDet").innerHTML = orderRecap
 
 }
 
@@ -260,23 +175,7 @@ function recap() {
 
 function render() {
     let htmlCont = ``
-    let mainCont = ``
     menuArray.forEach(function (content) {
-        // if (content.id === "zero") {
-
-        // }
-
-        // else if (content.id === 1) {
-
-        //     console.log(content.name)
-
-        // }
-
-        // else if (content.id === 2) {
-
-        //     console.log(content.name)
-
-        // }
 
         htmlCont += `
 
@@ -287,7 +186,8 @@ function render() {
                         <p>${content.ingredients}</p>
                         <h2>${content.price}$</h2>
                     </div>
-                    <div class="plus-btn" id="${content.id}" data-${content.id}="${content.id}">
+                    <div class="plus-btn"
+                    data-add="${content.id}">
                         +
                     </div>
 
@@ -298,8 +198,6 @@ function render() {
 
 
     })
-    mainCont += ``
-
 
     return htmlCont
 
