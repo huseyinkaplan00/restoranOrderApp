@@ -186,10 +186,10 @@ function render() {
                         <p>${content.ingredients}</p>
                         <h2>${content.price}$</h2>
                     </div>
-                    <div class="plus-btn"
+                    <button type="button" class="plus-btn"
                     data-add="${content.id}">
                         +
-                    </div>
+                    </button>
 
                 </div>
         `
