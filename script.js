@@ -8,6 +8,7 @@ const allInputs = document.querySelectorAll("input")
 const orderAmount = document.querySelector(".order-amount")
 const orderFinish = document.querySelector(".order-finish")
 const pizza = document.querySelector(".pizza")
+const totalPrice = document.querySelector(".total-price")
 
 const orderItem = []
 
@@ -91,6 +92,13 @@ document.addEventListener("click", function (e) {
 
     }
 
+
+    else if (e.target.dataset.remove) {
+
+        removeClick(e.target.dataset.remove)
+
+    }
+
     else if (e.target.id === "close-btn") {
 
         closeBTN()
@@ -127,16 +135,33 @@ function addClick(itemID) {
     })[0]
 
     itemObj.orderCount++
-    itemObj.price++
     itemObj.sum = itemObj.price * itemObj.orderCount
 
     if (!orderItem.includes(itemObj)) {
 
         orderItem.push(itemObj)
+        console.log("deneme")
 
     }
 
     recap()
+    fullPrice()
+}
+
+
+function removeClick(removedItem) {
+    const itemObj = orderItem.filter(function (selectedItem) {
+        return selectedItem.id == removedItem
+    })[0]
+
+    itemObj.orderCount--
+    itemObj.sum = itemObj.orderCount * itemObj.price
+
+
+
+    console.log(itemObj)
+    recap()
+    fullPrice()
 }
 
 
@@ -153,7 +178,7 @@ function recap() {
         
         <div class="order-titles">
                         <h1 class="pizza">${data.name}</h1>
-                        <p class="remove">remove</p>
+                        <p class="remove" data-remove="${data.id}">remove</p>
                         <div class="price">
                         <span>${data.orderCount}</span>    
                         <h2>$${data.price}</h2>
@@ -171,6 +196,25 @@ function recap() {
 
 }
 
+function fullPrice() {
+    let price = 0
+    let priceHtml = ``
+
+    orderItem.forEach(function (item) {
+        price += item.sum
+    })
+
+    priceHtml += `
+    
+    <h1>Total price:</h1>
+    <h2>$${price}</h2>
+    
+    
+    `
+    totalPrice.innerHTML = priceHtml
+
+
+}
 
 
 function render() {
