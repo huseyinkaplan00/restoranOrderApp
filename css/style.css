@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Smythe&display=swap");
+@media only screen and (max-width: 600px) {
+  body {
+    transform: scale(0.7);
+  }
+}
+@media only screen and (max-width: 320px) {
+  body {
+    transform: scale(0.5);
+  }
+}
 h1,
 h2,
 h3,
@@ -31,7 +41,6 @@ body {
 
 .container {
   width: 600px;
-  height: 1161px;
   background-color: #FFFFFF;
   position: relative;
 }
@@ -158,6 +167,7 @@ body {
 }
 .container #complete-btn {
   margin-top: 53px;
+  margin-bottom: 20px;
   width: 508px;
   height: 60px;
   background: #16DB99;

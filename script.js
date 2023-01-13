@@ -7,7 +7,6 @@ const submitForm = document.getElementById("formOne")
 const allInputs = document.querySelectorAll("input")
 const orderAmount = document.querySelector(".order-amount")
 const orderFinish = document.querySelector(".order-finish")
-const pizza = document.querySelector(".pizza")
 const totalPrice = document.querySelector(".total-price")
 
 const orderItem = []
@@ -137,10 +136,9 @@ function addClick(itemID) {
     itemObj.orderCount++
     itemObj.sum = itemObj.price * itemObj.orderCount
 
-    if (!orderItem.includes(itemObj)) {
 
+    if (!orderItem.includes(itemObj)) {
         orderItem.push(itemObj)
-        console.log("deneme")
 
     }
 
@@ -237,9 +235,6 @@ function render() {
 
                 </div>
         `
-
-
-
 
     })
 
