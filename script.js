@@ -152,12 +152,19 @@ function removeClick(removedItem) {
         return selectedItem.id == removedItem
     })[0]
 
+    if (itemObj.orderCount === 0) {
+
+        orderItem.splice(orderItem.indexOf(itemObj), 1)
+        recap()
+        fullPrice()
+    }
+
     itemObj.orderCount--
     itemObj.sum = itemObj.orderCount * itemObj.price
 
 
 
-    console.log(itemObj)
+
     recap()
     fullPrice()
 }
@@ -166,6 +173,13 @@ function removeClick(removedItem) {
 
 function recap() {
     let orderRecap = ``
+
+
+    if (orderItem.length === 0) {
+        orderAmount.classList.add("d-none")
+        recap()
+        fullPrice()
+    }
 
 
     orderAmount.classList.remove("d-none")
