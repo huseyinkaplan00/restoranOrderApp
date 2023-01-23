@@ -1,5 +1,5 @@
 # restoranOrderApp
 
-restaurant ordering app. designed with vanilla-js, scss, html
+Restaurant ordering app. designed with Vanilla-JS, SCSS, HTML
 
 🌍 live at : https://huseyinkaplan00.github.io/restoranOrderApp/
